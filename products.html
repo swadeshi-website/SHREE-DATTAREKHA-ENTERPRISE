@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Products — SHREE DATTAREKHA ENTERPRISE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header small-header">
+    <div class="container header-inner">
+      <div class="brand-left">
+        <img src="images/sd.png" alt="SD Logo" class="logo small">
+        <div class="brand-text">
+          <div class="business-name small">SHREE DATTAREKHA ENTERPRISE</div>
+        </div>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link active">Products</a>
+        <a href="order.html" class="nav-link">Order Book</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="admin.html" class="nav-link">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <h1 class="section-title">Products — Brand Categories</h1>
+      <p class="muted">Tap a brand to view its products. Each product has quantity controls and Add-to-Cart.</p>
+
+      <!-- Brand buttons stacked vertically (not many in one line) -->
+      <div class="brand-buttons">
+        <button class="brand-btn" onclick="showBrand('GITS')">Gits</button>
+        <button class="brand-btn" onclick="showBrand('SAWAI')">Sawai</button>
+        <!-- Add more brands below if needed -->
+      </div>
+
+      <hr style="opacity:.06;margin:18px 0">
+
+      <div id="brandTitle" class="brand-title"></div>
+      <div id="productsContainer" class="grid"></div>
+
+      <div class="center" style="margin-top:14px">
+        <a href="order.html" class="btn-primary">Go to Order Book (Cart)</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container small">© <span id="y2"></span> SHREE DATTAREKHA ENTERPRISE</div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('y2').innerText = new Date().getFullYear();
+    // show first brand by default
+    document.addEventListener('DOMContentLoaded', ()=> showBrand('GITS'));
+  </script>
+</body>
+</html>

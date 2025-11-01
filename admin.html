@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — Orders</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header small-header">
+    <div class="container header-inner">
+      <div class="brand-left">
+        <img src="images/sd.png" alt="SD Logo" class="logo small">
+        <div class="brand-text">
+          <div class="business-name small">SHREE DATTAREKHA ENTERPRISE</div>
+        </div>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="order.html" class="nav-link">Order Book</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="admin.html" class="nav-link active">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <h1 class="section-title">Saved Orders (Local)</h1>
+      <div class="admin-actions">
+        <button class="btn-outline" id="refreshBtn">Refresh</button>
+        <button class="btn-primary" id="exportBtn">Export All to Excel</button>
+        <button class="btn-outline" id="clearBtn">Clear All Orders</button>
+      </div>
+
+      <div id="ordersTable" class="orders-table"></div>
+      <p class="muted">Orders are stored in this browser's local storage. Export regularly for backups.</p>
+    </section>
+  </main>
+
+  <!-- SheetJS -->
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.getElementById('refreshBtn').onclick = renderOrdersAdmin;
+      document.getElementById('exportBtn').onclick = exportOrdersToXLSX;
+      document.getElementById('clearBtn').onclick = clearAllOrders;
+    });
+  </script>
+</body>
+</html>

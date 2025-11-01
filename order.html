@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Order Book — SHREE DATTAREKHA ENTERPRISE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header small-header">
+    <div class="container header-inner">
+      <div class="brand-left">
+        <img src="images/sd.png" alt="SD Logo" class="logo small">
+        <div class="brand-text">
+          <div class="business-name small">SHREE DATTAREKHA ENTERPRISE</div>
+        </div>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="order.html" class="nav-link active">Order Book</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="admin.html" class="nav-link">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <h1 class="section-title">Order Book (Cart)</h1>
+      <p class="muted">Set quantities, fill form details, then Place Order. Order will be saved as Excel and WhatsApp will open with order summary.</p>
+
+      <div id="cartContainer" class="cart-wrap"></div>
+
+      <div class="order-form">
+        <h3>Order & Buyer Details</h3>
+        <!-- placeholders you will fill -->
+        <input id="shopName" class="field" placeholder="Shop Name (required)">
+        <input id="buyerName" class="field" placeholder="Contact Person Name">
+        <input id="buyerPhone" class="field" placeholder="Mobile Number (required)">
+        <input id="gstNumber" class="field" placeholder="GST Number (if any)">
+        <input id="orderDate" class="field" type="date">
+        <input id="orderTime" class="field" type="time">
+        <input id="orderDay" class="field" placeholder="Day (auto or manual)">
+        <textarea id="deliveryAddress" class="field" placeholder="Delivery Address"></textarea>
+        <textarea id="buyerNote" class="field" rows="3" placeholder="Any instruction (optional)"></textarea>
+
+        <div class="form-actions">
+          <button class="btn-outline" id="clearCart">Clear Cart</button>
+          <button class="btn-primary" id="placeOrder">Place Order & Send WhatsApp</button>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© <span id="y3"></span> SHREE DATTAREKHA ENTERPRISE</div>
+  </footer>
+
+  <!-- SheetJS for Excel download (admin uses too) -->
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('y3').innerText = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', ()=>{
+      // default date/time/day
+      const dateEl = document.getElementById('orderDate');
+      const timeEl = document.getElementById('orderTime');
+      const dayEl = document.getElementById('orderDay');
+      const now = new Date();
+      dateEl.value = now.toISOString().slice(0,10);
+      timeEl.value = now.toTimeString().slice(0,5);
+      const weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      if(dayEl) dayEl.value = weekday[now.getDay()];
+      // buttons:
+      document.getElementById('clearCart').onclick = ()=> { if(confirm('Clear cart?')){ saveCart({}); renderCart(); } };
+      document.getElementById('placeOrder').onclick = handlePlaceOrder;
+    });
+  </script>
+</body>
+</html>

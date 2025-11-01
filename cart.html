@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — [Your Shop Name]</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner container">
+      <div class="logo-wrap"><img src="images/shope.jpeg" alt="logo" class="logo-circle"></div>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="order.html" class="nav-link">Order Book</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="admin.html" class="nav-link">Admin</a>
+      </nav>
+      <a class="whatsapp-btn" href="https://wa.me/919503984711" target="_blank">WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <h1 class="section-title">About Us</h1>
+      <p class="lead"> <!-- Add short description about the business here -->
+        We are a trusted distributor of multiple branded consumer products. <!-- Replace this text -->
+      </p>
+
+      <h2>Founder</h2>
+      <div class="founder-card">
+        <img src="images/shope.jpeg" alt="Founder" class="founder-img">
+        <div>
+          <div class="founder-name">Rahul Lambate</div>
+          <div class="muted">Founder — Add a short bio here.</div>
+        </div>
+      </div>
+
+      <h2>Contact</h2>
+      <p><!-- Add address here --></p>
+      <p>WhatsApp: <a href="https://wa.me/919503984711" target="_blank">+91 95039 84711</a></p>
+      <p>Email: <a href="mailto:info@yourbrand.com">info@yourbrand.com</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© <span id="year4"></span> [Your Shop Name]</div>
+      <div class="muted small">Edit this page in about.html</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>document.getElementById('year4').innerText = new Date().getFullYear();</script>
+</body>
+</html>
